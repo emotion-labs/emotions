@@ -1,0 +1,35 @@
+{
+  "name": "emotion",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@amcharts/amcharts4": "^4.4.6",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.4",
+    "babel-loader": "^8.0.6",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.4.5",
+    "webpack": "4.28.4",
+    "webpack-cli": "^3.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emotion-labs/emotions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emotion-labs/emotions/issues"
+  },
+  "homepage": "https://github.com/emotion-labs/emotions#readme"
+}
