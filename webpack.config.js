@@ -1,13 +1,15 @@
-var $path = require("path");
+const Path = require("path");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    mode: "production",
-    devtool: "source-map",
+    mode: "development",
+    // devtool: "source-map",
+    devtool: false,
     entry: {
         index: "./src/ts/app.ts"
     },
     output: {
-        path: $path.join(__dirname, "dist"),
+        path: Path.join(__dirname, "dist"),
         filename: "app.js"
     },
     module: {
@@ -17,6 +19,7 @@ module.exports = {
             use: {
                 loader: "babel-loader",
                 options: {
+                    compact: true,
                     presets: ["@babel/preset-env"],
                     plugins: ["@babel/plugin-syntax-dynamic-import"]
                 }
@@ -26,5 +29,10 @@ module.exports = {
             use: ["source-map-loader"],
             enforce: "pre"
         }]
-    }
+    },
+    plugins: [
+        new CopyWebpackPlugin([
+            { from: 'src/resources' }
+        ])
+    ]
 };

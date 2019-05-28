@@ -4,32 +4,52 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 am4core.useTheme(am4themes_animated);
 
-let chart = am4core.create("chartdiv", am4charts.XYChart);
-chart.paddingRight = 20;
+let chart = am4core.create("emotion-chart", am4charts.RadarChart);
+chart.innerRadius = am4core.percent(10);
 
-let data = [];
-let visits = 10;
-for (let i = 1; i < 366; i++) {
-    visits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
-    data.push({ date: new Date(2018, 0, i), name: "name" + i, value: visits });
-}
+/* Add data */
+chart.data = [{
+    "emotion": "Ärger",
+    "strength": 100
+}, {
+    "emotion": "Wut",
+    "strength": 0
+}, {
+    "emotion": "Abneigung",
+    "strength": 20
+}, {
+    "emotion": "Niedergeschlagenheit",
+    "strength": 50
+}, {
+    "emotion": "Zuneigung",
+    "strength": 75
+}, {
+    "emotion": "Freude",
+    "strength": 33
+}, {
+    "emotion": "Scham",
+    "strength": 29
+}, {
+    "emotion": "Trauer",
+    "strength": 92
+}, {
+    "emotion": "Angst",
+    "strength": 40
+}];
 
-chart.data = data;
-
-let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-dateAxis.renderer.grid.template.location = 0;
+/* Create axes */
+let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "emotion";
+categoryAxis.renderer._gridType = "polygons";
 
 let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.tooltip.disabled = true;
-valueAxis.renderer.minWidth = 35;
 
-let series = chart.series.push(new am4charts.LineSeries());
-series.dataFields.dateX = "date";
-series.dataFields.valueY = "value";
-
-series.tooltipText = "{valueY.value}";
-chart.cursor = new am4charts.XYCursor();
-
-let scrollbarX = new am4charts.XYChartScrollbar();
-scrollbarX.series.push(series);
-chart.scrollbarX = scrollbarX;
+/* Create and configure series */
+let series = chart.series.push(new am4charts.RadarSeries());
+let bullets = series.bullets.push(new am4charts.CircleBullet());
+bullets.draggable = true;
+series.name = "Stärke";
+series.dataFields.valueY = "strength";
+series.dataFields.categoryX = "emotion";
+series.strokeWidth = 3;
+series.zIndex = 2;
