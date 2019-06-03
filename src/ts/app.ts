@@ -7,3 +7,4 @@ const CONSOLE_STYLE_ΕRRΟR = "color: red;";
 
 const app = new Application();
 console.info("%c construct Application", CONSOLE_STYLE_APPLICATION, app);
+app.run();

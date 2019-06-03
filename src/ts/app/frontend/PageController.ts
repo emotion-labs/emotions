@@ -1,6 +1,6 @@
 import { AbstractController } from "../abstract/AbstractController";
 
-export class StarController extends AbstractController {
+export class PageController extends AbstractController {
 
     constructor() {
         super();

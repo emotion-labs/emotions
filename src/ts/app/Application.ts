@@ -1,15 +1,15 @@
+import { PageController as PageController } from "./frontend/PageController";
+import { AbstractApplication } from "./abstract/AbstractApplication";
 
-export class Application {
-
-
+export class Application extends AbstractApplication {
+    private page: PageController;
 
     constructor() {
-
-        this.start();
-
+        super();
     }
 
-    start() {
+    run() {
+        this.page = new PageController();
 
     }
 
