@@ -1,4 +1,5 @@
 import { AbstractEventListener } from "./AbstractEventListener";
+import { IView } from "./AbstractView";
 
 export abstract class AbstractController extends AbstractEventListener {
 
@@ -6,6 +7,7 @@ export abstract class AbstractController extends AbstractEventListener {
         super();
     }
 
-    abstract process(): void;
+    abstract process(_oData: any): void;
 
+    abstract getView(): IView;
 }

@@ -1,6 +1,12 @@
 import { AbstractEventListener } from "./AbstractEventListener";
 
-export abstract class AbstractView extends AbstractEventListener {
+export interface IView {
+
+    render(): void;
+
+}
+
+export abstract class AbstractView extends AbstractEventListener implements IView {
 
     constructor() {
         super();
