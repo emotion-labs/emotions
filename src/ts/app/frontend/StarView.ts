@@ -10,8 +10,6 @@ export class StarView extends AbstractView {
     }
 
     render() {
-        super.render();
-
         am4core.useTheme(am4themes_animated);
 
         let chart = am4core.create("emotion-chart", am4charts.RadarChart);
@@ -48,10 +46,12 @@ export class StarView extends AbstractView {
         }];
 
         /* Create axes */
+        // @ts-ignore
         let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "emotion";
         categoryAxis.renderer._gridType = "polygons";
 
+        // @ts-ignore
         let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
         /* Create and configure series */
