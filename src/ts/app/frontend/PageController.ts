@@ -1,5 +1,5 @@
-import { AbstractComponent } from "../abstract/AbstractComponent";
-import { IComponentRenderer } from "../abstract/AbstractComponentRenderer";
+import { AbstractComponent } from './component/AbstractComponent';
+import { IComponentRenderer } from './component/IComponentRenderer';
 
 export class PageController extends AbstractComponent {
 

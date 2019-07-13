@@ -1,12 +1,9 @@
-import { IModuleComponent } from "./abstract/AbstractModuleComponent";
-import { ModuleType } from "./enum/ModuleType";
+import { IModuleComponent } from './frontend/IModuleComponent';
 
 export interface IApplication {
 
     run(): void;
 
     registerModule(_oModule: IModuleComponent): void;
-
-    getModulesByType(_eType: ModuleType): Set<IModuleComponent>;
 
 }

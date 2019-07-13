@@ -1,4 +1,4 @@
-import { AbstractEventListener } from "./AbstractEventListener";
+import { AbstractEventListener } from '../misc/AbstractEventListener';
 
 export abstract class AbstractView extends AbstractEventListener {
 

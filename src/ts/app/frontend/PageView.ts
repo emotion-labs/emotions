@@ -1,4 +1,4 @@
-import { AbstractRenderer } from "../abstract/AbstractComponentRenderer";
+import { AbstractRenderer } from './component/AbstractComponentRenderer';
 
 export class PageView extends AbstractRenderer {
 

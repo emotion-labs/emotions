@@ -4,6 +4,6 @@ import { Application } from "./app/Application";
 const CONSOLE_STYLE_APPLICATION = "color: blue;";
 /** CONSTANTS - END */
 
-const app = new Application();
+const app = Application.instance();
 console.info("%c construct Application", CONSOLE_STYLE_APPLICATION, app);
 app.run();

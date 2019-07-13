@@ -1,9 +1,6 @@
-import { AbstractEventListener } from "./AbstractEventListener";
-import { IComponentRenderer } from "./AbstractComponentRenderer";
-
-export interface IComponent {
-    getRenderer(): IComponentRenderer;
-}
+import { AbstractEventListener } from '../../misc/AbstractEventListener';
+import { IComponentRenderer } from './IComponentRenderer';
+import { IComponent } from './IComponent';
 
 export abstract class AbstractComponent extends AbstractEventListener implements IComponent {
 

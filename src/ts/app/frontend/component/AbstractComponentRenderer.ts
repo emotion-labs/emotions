@@ -1,10 +1,5 @@
-import { AbstractEventListener } from "./AbstractEventListener";
-
-export interface IComponentRenderer {
-
-    render(): void;
-
-}
+import { AbstractEventListener } from '../../misc/AbstractEventListener';
+import { IComponentRenderer } from './IComponentRenderer';
 
 export abstract class AbstractRenderer extends AbstractEventListener implements IComponentRenderer {
 
@@ -12,6 +7,6 @@ export abstract class AbstractRenderer extends AbstractEventListener implements 
         super();
     }
 
-    abstract render(): void;
+    abstract render(): HTMLElement;
 
 }

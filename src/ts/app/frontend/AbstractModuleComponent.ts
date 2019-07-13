@@ -1,11 +1,6 @@
 import { ModuleType } from "../enum/ModuleType";
-import { AbstractComponent, IComponent } from "./AbstractComponent";
-
-export interface IModuleComponent extends IComponent {
-
-    getModuleType(): ModuleType;
-
-}
+import { AbstractComponent } from './component/AbstractComponent';
+import { IModuleComponent } from './IModuleComponent';
 
 export abstract class AbstractModuleComponent extends AbstractComponent implements IModuleComponent {
 
