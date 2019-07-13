@@ -1,0 +1,35 @@
+{
+  "name": "emotion",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "i18next": "^17.0.2"
+  },
+  "devDependencies": {
+    "@amcharts/amcharts4": "^4.4.6",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-typescript": "^5.0.1",
+    "jshint": "^2.10.2",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "run": "gulp default",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emotion-labs/emotions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emotion-labs/emotions/issues"
+  },
+  "homepage": "https://github.com/emotion-labs/emotions#readme"
+}
