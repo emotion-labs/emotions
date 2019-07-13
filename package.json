@@ -4,21 +4,26 @@
   "description": "",
   "private": true,
   "dependencies": {
-    "i18next": "^17.0.2"
+    "@types/i18next": "^12.1.0",
+    "i18next": "^17.0.6"
   },
   "devDependencies": {
-    "@amcharts/amcharts4": "^4.4.6",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
+    "gulp-dependencies": "^0.1.1",
     "gulp-jshint": "^2.1.0",
+    "gulp-npm-dist": "^1.0.3",
+    "gulp-regex-replace": "^0.2.3",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-typescript": "^5.0.1",
+    "i18next-scanner": "^2.10.2",
     "jshint": "^2.10.2",
     "typescript": "^3.5.3"
   },
   "scripts": {
-    "run": "gulp default",
+    "dependencies": "npm update && npm prune && npm install && npm dedupe && npm audit",
+    "package": "gulp package",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
