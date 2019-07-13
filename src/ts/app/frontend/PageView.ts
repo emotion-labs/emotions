@@ -1,6 +1,6 @@
-import { AbstractView } from "../abstract/AbstractView";
+import { AbstractRenderer } from "../abstract/AbstractComponentRenderer";
 
-export class PageView extends AbstractView {
+export class PageView extends AbstractRenderer {
 
     constructor() {
         super();

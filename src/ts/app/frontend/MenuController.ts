@@ -1,8 +1,8 @@
-import { AbstractModuleController } from "../abstract/AbstractModuleController";
-import { ModuleType } from "../../enum/ModuleType";
-import { AbstractView } from "../abstract/AbstractView";
+import { AbstractModuleComponent } from "../abstract/AbstractModuleComponent";
+import { ModuleType } from "../enum/ModuleType";
+import { AbstractRenderer as AbstractRenderer } from "../abstract/AbstractComponentRenderer";
 
-export class MenuController extends AbstractModuleController {
+export class MenuController extends AbstractModuleComponent {
 
     constructor() {
         super();
@@ -12,11 +12,7 @@ export class MenuController extends AbstractModuleController {
         throw new Error("Method not implemented.");
     }
 
-    process(_oData: any): void {
-        throw new Error("Method not implemented.");
-    }
-
-    getView(): AbstractView {
+    getRenderer(): AbstractRenderer {
         throw new Error("Method not implemented.");
     }
 

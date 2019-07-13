@@ -1,13 +1,14 @@
-import { AbstractController } from "../abstract/AbstractController";
+import { AbstractComponent } from "../abstract/AbstractComponent";
+import { IComponentRenderer } from "../abstract/AbstractComponentRenderer";
 
-export class PageController extends AbstractController {
+export class PageController extends AbstractComponent {
 
     constructor() {
         super();
     }
 
-    process() {
-
+    getRenderer(): IComponentRenderer {
+        throw new Error("Method not implemented.");
     }
 
 }

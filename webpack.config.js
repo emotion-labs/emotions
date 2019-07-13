@@ -1,16 +1,20 @@
 const Path = require("path");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     mode: "development",
-    // devtool: "source-map",
-    devtool: false,
+    devtool: "source-map",
     entry: {
         index: "./src/ts/app.ts"
     },
+    resolve: {
+        extensions: ['.ts', '.js', '.json']
+    },
     output: {
         path: Path.join(__dirname, "dist"),
-        filename: "app.js"
+        filename: 'js/[name].js',
+        sourceMapFilename: 'js/[name].js.map',
     },
     module: {
         rules: [{
@@ -25,14 +29,19 @@ module.exports = {
                 }
             }
         }, {
+            test: /\.(ts|tsx)?$/,
+            use: {
+                loader: 'awesome-typescript-loader'
+            },
+            exclude: /node_modules/
+        }, {
             test: /.js$/,
             use: ["source-map-loader"],
             enforce: "pre"
         }]
     },
     plugins: [
-        new CopyWebpackPlugin([
-            { from: 'src/resources' }
-        ])
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin([{ from: 'src/resources' }]),
     ]
 };

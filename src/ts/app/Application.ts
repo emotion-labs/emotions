@@ -1,5 +1,4 @@
-import { PageController as PageController } from "./frontend/PageController";
-import { AbstractApplication } from "./abstract/AbstractApplication";
+import { AbstractApplication } from "./AbstractApplication";
 
 export class Application extends AbstractApplication {
 
@@ -8,7 +7,7 @@ export class Application extends AbstractApplication {
     }
 
     run() {
-
+        console.log("test");
     }
 
 }
