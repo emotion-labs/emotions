@@ -1,7 +1,7 @@
 import { AbstractApplication } from "./AbstractApplication";
 import { IApplication } from "./IApplication";
 
-export class Application extends AbstractApplication {
+export class EmotionApplication extends AbstractApplication {
     private static oInstance: IApplication;
 
     static instance(): IApplication {
