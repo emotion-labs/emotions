@@ -1,5 +1,3 @@
-import { map } from "@amcharts/amcharts4/.internal/core/utils/Iterator";
-
 export abstract class AbstractEventListener {
     private static readonly CONSOLE_STYLE_EVENTS: String = "color: #ff00ff;";
     private mapEventListener: Map<Object, Map<Symbol, Function>> = new Map();
@@ -20,7 +18,7 @@ export abstract class AbstractEventListener {
     protected triggerEvent(_name: Object, ..._data: any[]) {
         let mapEventListener = this.getEventListenerMap(_name);
         console.debug("%c trigger Event ", AbstractEventListener.CONSOLE_STYLE_EVENTS, _name, _data);
-        if (map.length > 0) {
+        if (mapEventListener.size > 0) {
             for (const [key, listener] of mapEventListener) {
                 this.triggerListener(listener, _data, _name);
             }
