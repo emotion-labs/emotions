@@ -1,7 +1,7 @@
 import { IComponentRenderer } from './IComponentRenderer';
 
-export interface IComponent {
+export interface IComponent<RENDERER extends IComponentRenderer> {
 
-    getRenderer(): IComponentRenderer;
+    getRenderer(): RENDERER;
 
 }

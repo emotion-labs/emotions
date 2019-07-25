@@ -1,7 +1,7 @@
 import { AbstractEventListener } from '../../misc/AbstractEventListener';
 import { IComponentRenderer } from './IComponentRenderer';
 
-export abstract class AbstractRenderer extends AbstractEventListener implements IComponentRenderer {
+export abstract class AbstractComponentRenderer extends AbstractEventListener implements IComponentRenderer {
 
     constructor() {
         super();

@@ -1,13 +1,13 @@
-import { AbstractRenderer } from './component/AbstractComponentRenderer';
+import { AbstractComponentRenderer } from './component/AbstractComponentRenderer';
 
-export class PageView extends AbstractRenderer {
+export class PageView extends AbstractComponentRenderer {
 
     constructor() {
         super();
     }
 
-    render() {
-
+    render(): HTMLElement {
+        throw new Error("Method not implemented.");
     }
 
 }
