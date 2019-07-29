@@ -1,5 +1,7 @@
 import { AbstractApplication } from "./AbstractApplication";
+import { HeaderComponent } from './frontend/HeaderComponent';
 import { IApplication } from "./IApplication";
+import { MenuComponent } from './frontend/MenuComponent';
 
 export class EmotionApplication extends AbstractApplication {
     private static oInstance: IApplication;
@@ -16,7 +18,8 @@ export class EmotionApplication extends AbstractApplication {
     }
 
     run(): void {
-
+        this.registerModule(new MenuComponent());
+        this.registerModule(new HeaderComponent());
     }
 
 }

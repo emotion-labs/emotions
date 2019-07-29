@@ -20,11 +20,11 @@ let typescript = () => {
 }
 
 let npm = () => {
-        var npmDist = require('gulp-npm-dist');
-        var rename = require('gulp-rename');
+        var gulpNpmDist = require('gulp-npm-dist');
+        var gulpRename = require('gulp-rename');
         return gulp
-                .src(npmDist(), { base: './node_modules' })
-                .pipe(rename(function (path) {
+                .src(gulpNpmDist(), { base: './node_modules' })
+                .pipe(gulpRename(function (path) {
                         path.dirname = path.dirname.replace(/\/dist/, '').replace(/\\dist/, '');
                         console.log(path);
                 }))

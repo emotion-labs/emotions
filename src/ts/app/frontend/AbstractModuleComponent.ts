@@ -3,12 +3,12 @@ import { AbstractComponent } from './component/AbstractComponent';
 import { IModuleComponent } from './IModuleComponent';
 import { IComponentRenderer } from './component/IComponentRenderer';
 
-export abstract class AbstractModuleComponent<RENDERER extends IComponentRenderer> extends AbstractComponent<RENDERER> implements IModuleComponent {
+export abstract class AbstractModuleComponent<RENDERER extends IComponentRenderer> extends AbstractComponent<RENDERER> implements IModuleComponent<RENDERER> {
 
-    constructor() {
+    protected constructor() {
         super();
     }
 
-    abstract getModuleType(): ModuleType;
+    public abstract getModuleType(): ModuleType;
 
 }
