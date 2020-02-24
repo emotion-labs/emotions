@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"name": "Sources",
+			"path": "src/main"
+		},
+		{
+			"name": "Tests",
+			"path": "src/test"
+		},
+		{
+			"name": "Distribution",
+			"path": "dist"
+		},
+		{
+			"name": "Project",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Distribution",
+		"emeraldwalk.runonsave": {
+			"commands": [
+				{
+					"match": ".js",
+					"cmd": "gulp package"
+				}
+			]
+		}
+	}
+}

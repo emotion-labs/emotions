@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "es2015",
+        "target": "es2020",
+        "checkJs": true,
+        "experimentalDecorators": true,
+    },
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*",
+        "dist"
+    ],
+    "include": [
+        "src/main/js/**/*",
+        "src/test/js/**/*"
+    ],
+}

@@ -4,25 +4,24 @@
   "description": "",
   "private": true,
   "dependencies": {
-    "@types/i18next": "^12.1.0",
-    "i18next": "^17.0.6"
+    "i18next": "^17.0.6",
+    "i18next-xhr-backend": "^3.2.2"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-asset-manifest": "0.0.6",
     "gulp-clean": "^0.4.0",
-    "gulp-dependencies": "^0.1.1",
-    "gulp-eslint": "^3.0.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-filter": "^6.0.0",
+    "gulp-load-plugins": "^2.0.2",
     "gulp-npm-dist": "^1.0.3",
     "gulp-regex-replace": "^0.2.3",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-typescript": "^5.0.1",
-    "i18next-scanner": "^2.10.2",
-    "jshint": "^2.10.2",
-    "typescript": "^3.5.3"
+    "i18next-scanner": "^2.10.2"
   },
   "scripts": {
-    "dependencies": "npm update && npm prune && npm install && npm dedupe && npm audit fix",
+    "dependencies": "npm update && npm prune && npm install && npm dedupe && npm audit",
     "package": "gulp package",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

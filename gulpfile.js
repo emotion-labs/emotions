@@ -1,52 +1,55 @@
-let gulp = require("gulp");
-let sourceDir = "src/";
-let targetDir = "dist/";
+const sourceDir = "./src/main/";
+const targetDir = "./dist/";
+
+const gulp = require("gulp");
+const plugins = require('gulp-load-plugins')();
 
 let clean = () => {
-        let gulpClean = require("gulp-clean");
         return gulp.src(targetDir + '/*', { read: false })
-                .pipe(gulpClean());
+                .pipe(plugins.clean());
 }
 
-let typescript = () => {
-        let gulpTs = require("gulp-typescript");
-        let gulpTsProject = gulpTs.createProject('tsconfig.json')
-        let gulpReplace = require('gulp-regex-replace');
+let js = () => {
         return gulp
-                .src(sourceDir + "ts/**/*.ts")
-                .pipe(gulpTsProject()).js
-                .pipe(gulpReplace({ regex: 'import .*? from (?:"|\')([^\'"]+)(?:"|\');', replace: (s) => { return s.endsWith(".js") || !s.startsWith(".") ? s : s + ".js"; } }))
+                .src(sourceDir + "js/**/*.js")
+                .pipe(plugins.regexReplace({ regex: 'import .*? from (?:"|\')([^\'"]+)(?:"|\');', replace: (s) => { return s.endsWith(".js") || !s.startsWith(".") ? s : s + ".js"; } }))
                 .pipe(gulp.dest(targetDir + "js"));
 }
 
-let npm = () => {
-        var gulpNpmDist = require('gulp-npm-dist');
-        var gulpRename = require('gulp-rename');
+let translation = () => {
         return gulp
-                .src(gulpNpmDist(), { base: './node_modules' })
-                .pipe(gulpRename(function (path) {
+                .src(sourceDir + "locales/**/*")
+                .pipe(gulp.dest(targetDir + "locales"));
+}
+
+let npm = () => {
+        return gulp
+                .src(plugins.npmDist(), { base: './node_modules' })
+                .pipe(plugins.filter(['**/esm/*']))
+                .pipe(plugins.rename(function (path) {
                         path.dirname = path.dirname.replace(/\/dist/, '').replace(/\\dist/, '');
-                        console.log(path);
+                        path.dirname = path.dirname.replace(/\/esm/, '').replace(/\\esm/, '');
                 }))
+                .pipe(plugins.debug({ title: 'npm:' }))
                 .pipe(gulp.dest(targetDir + "libs"));
 }
 
 // Compile Our Sass
 let sass = () => {
-        let gulpSass = require("gulp-sass");
         return gulp.src(sourceDir + "scss/**.scss")
-                .pipe(gulpSass())
+                .pipe(plugins.sass())
                 .pipe(gulp.dest(targetDir + "css"));
 }
 
 let copyResources = () => {
-        return gulp.src(sourceDir + "resources/**")
+        return gulp.src(sourceDir + "webapp/**")
                 .pipe(gulp.dest(targetDir));
 }
 
 exports.clean = clean;
-exports.typescript = typescript;
+exports.javascript = js;
 exports.npm = npm;
 exports.sass = sass;
+exports.translation = translation;
 exports.copyResources = copyResources;
-exports.package = gulp.series(clean, gulp.parallel(typescript, sass, copyResources));
+exports.package = gulp.series(clean, gulp.parallel(js, sass, translation, copyResources));
