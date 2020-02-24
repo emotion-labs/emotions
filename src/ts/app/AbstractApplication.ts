@@ -1,8 +1,9 @@
 import { ModuleType } from "./enum/ModuleType";
-import { IModuleComponent } from './frontend/AbstractModuleComponent';
+import { IApplication } from "./IApplication";
 import { AbstractEventListener } from './misc/AbstractEventListener';
+import { IModuleComponent } from './frontend/IModuleComponent';
 
-export abstract class AbstractApplication extends AbstractEventListener {
+export abstract class AbstractApplication extends AbstractEventListener implements IApplication {
     private mapModules: Map<ModuleType, Set<IModuleComponent>> = new Map();
 
     protected constructor() {
@@ -11,11 +12,11 @@ export abstract class AbstractApplication extends AbstractEventListener {
 
     abstract run(): void;
 
-    registerModule(_oModule: IModuleComponent): void {
+    public registerModule(_oModule: IModuleComponent): void {
         this.getModulesByType(_oModule.getModuleType()).add(_oModule);
     }
 
-    protected getModulesByType(_eType: ModuleType): Set<IModuleComponent> {
+    public getModulesByType(_eType: ModuleType): Set<IModuleComponent> {
         if (this.mapModules.has(_eType)) {
             this.mapModules.set(_eType, new Set<IModuleComponent>());
         }
