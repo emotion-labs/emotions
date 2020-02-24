@@ -1,9 +1,8 @@
 import { ModuleType } from "./enum/ModuleType";
 import { IModuleComponent } from './frontend/AbstractModuleComponent';
-import { IApplication } from "./IApplication";
 import { AbstractEventListener } from './misc/AbstractEventListener';
 
-export abstract class AbstractApplication extends AbstractEventListener implements IApplication {
+export abstract class AbstractApplication extends AbstractEventListener {
     private mapModules: Map<ModuleType, Set<IModuleComponent>> = new Map();
 
     protected constructor() {
